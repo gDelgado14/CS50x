@@ -1,0 +1,89 @@
+0.  JPEG images store 24 bits per pixel, 8 bits each for RGB. 
+        Thus there are 16 million different colours available. 
+    GIF is limited to 256 colours or less.
+    BMP contains the same as JPEG
+    PNG contains the smae potential as JPEG
+    
+    
+1.  GIF supports animation
+
+2.  Lossless compression recreates a compressed file as an identical
+    match to its original form. All lossless compression uses techniques
+    to break up a file into smaller segments, for storage or transmission,
+    that get reassembled later. Lossless compression is used for files,
+    such as applications, that need to be reproduced exactly like the original file.
+    
+    Lossy compression, on the other hand, eliminates repeated or "unnecessary" (repeated)
+    pieces of data. When such a file is decompressed, you get the compression software's
+    re-interpretation of the original file. Lossy compression can't be used
+    to compress anything that needs to be reproduced exactly -- it can't just
+    toss out redundant pieces and hope to program will still work. Instead,
+    lossy compression will more often be used with data that is open to some
+    level of human interpretation, such as an image, where the results can be
+    "fudged" the tiniest bit so that files can get smaller without, in theory,
+    anyone noticing. 
+    
+    
+3.  JPEG has the capability to be lossy
+    PNG is a lossless type
+    GIFS use lossless compression
+    BMP files are lossless
+    
+4.  Two things occur when a file is deleted on a FAT file system:
+        1 - the system modifies the filename's first character in the file's directory
+            entry to signal that the file has been deleted and that the directory entry
+            can be recycled
+        2 - the system moves all of the file's FAT clusters to the HDD's list of free clusters.
+            The actual file data is never touched.
+
+5.  One may physically destroy the drive, rendering it unusable
+    Degaussing the drive to randomize the magnetic domains - most likely rendering it
+        unusable in the process
+    overwritting the drive's data so that it cannot be recovered.
+    
+    for most home and business applications, simply filling an entire disk with ASCII Null bytes
+    provides sufficient sanitation.
+    
+    
+6.  declare sets of integer types having specified widths, and shall define corresponding sets of
+    macros. It shall also define macros that specify limits of integer types corresponding to types
+    defined in other standard headers.
+    
+7.  these are cross-platform data types that allow the programmer to work on 32 or 64 bit computers.
+    These types give us an exect and predefined number of bits each time, regardless of what platform
+    we are using. 
+    
+8.  BYTE: 1 byte
+    DWORD:  4 bytes
+    LONG: 4 bytes
+    word: 2 bytes
+    
+9.  The first two bytes of any BMP file must contain the ASCII characters "B" followed by "M."
+
+10. bfSize holds information on the size of the BITMAPFILEHEADER structure while biSize holds
+    information on the size of the BITMAPINFOHEADER structure
+    
+11. biHeight Specifies the height of the bitmap, in pixels.
+    If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower left corner.
+    If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper left corner.
+    If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS.
+    Top-down DIBs cannot be compressed.
+
+12. biBitCount Specifies the number of bits per pixel.
+
+13. fopen might return null if there is not enough disk space or if there is an error with regards  to
+    the file location.
+    
+14. This number equals the number of bytes at a time transferred only when size is 1, for both
+    BITMAPFILEHEADER and BITMAPINFOHEADER
+    
+15. padding will have a value of 3 if bi.biWidth is 3
+
+16. The fseek() function sets the file position indicator for the inptr pointed to by inptr.
+
+    In copy.c, if there's any padding, the reading file will skip reading the padding area by offsetting the
+    position indicator.
+    
+17. offset indicator to specify whether the offset is relative to the start, end, or current location of the
+    file, in this case, using the current position.
+18. Mila Banana dun it.

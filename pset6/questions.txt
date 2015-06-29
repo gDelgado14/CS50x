@@ -1,0 +1,62 @@
+0.  pneumonoultramicroscopicsilicovolcanoconiosis is a lung disease more commonly known as silicosis.
+    it is also the longest word in the English language.
+    
+1.  getrusage returns resource usage measures for the calling process, all children of the calling process
+    that have terminated and been waited for, and calling thread.
+    
+2.  There are 16 members in a variable of type struct rusage
+
+3.  before and after are passed by reference (as opposed to by value) because when the function returns
+    the updated variables, they contain the data that is returned within the function. If the variables
+    were passed by value, the information calculated by getrusage would not be shown in the variables. 
+    
+4.  Process of reading words from text file:
+    for each character in the file while not at the end of file
+    if the character is alphabetical or (the character is an apostrophe that appears after the first
+    character of the word)
+    append the character to an array to make up the temporary word to get spell-checked
+    increase index by one
+    if index count is greater than 45 then we must be running into jibberish, so exhaust the current
+    string and start over looking for the next word by resetting the index to 0
+    
+    else if the char is neither a letter nor an apostrophe and it is a digit
+    consume the rest of the string and reset the index to zero to start looking for a word again
+    
+    else if the char is neither alphanumeric or an apostrophe and the index is greater than zero
+    then we must have found a full word
+    Add null character to word to signify its ending
+    increase wordcount by one
+    get time stamp before 'check' function is run
+    get time stamp after 'check' function is run
+    
+    update the benchmark
+    
+    if the word is misspelled, print it and increase the count of misspelled words by one
+    
+    set index to zero to start searching for a new word
+    
+5.  By relying on scanf alone you may be reading in things that may seem like words but aren't
+
+6.  Those variables should never be changed or altered within those functions, hence why they have beenn
+    declared as const
+    
+7.  I used a Hash Table
+    The "nodes" contained therein had two elements: 
+        -- a word array of type char containing up to 45 chars plus an
+        additional placeholder for the null terminator "\0" to signify the end of string
+        -- a next pointer containing the memory address of the subsequent node in the bucket's linked list
+    I used an arbitrary size of number of buckets (array elements) for the Hash Table at 50000
+    Because the hash table was initialized as a global array, all the buckets automatically pointed to NULL
+    Once a word within the dictionary text file was hashed to a certain bucket, then memory would be allocated
+    to insert the node into the corresponding bucket either as an initial insertion or an alphabetically ordered
+    insertion, which entailed iterating through part of the linked list until it's correct position was found
+    
+8.  Total runtime for first successful program execution was 5.96 seconds
+
+9.  Program runtime was optimized with two minor tweaks:
+    -- abolishion of redundant or "commented out" text within dictionary.c file
+    -- exchanging primitive string-looping hash function for a bitwise-operating hash function
+    
+10. There is definately some redundant code but once I saw how much faster my program was than the staff solution
+    I decided not to go through the hassle of removing it; this refers especially to my implementation of load which
+    calls an insert function that has most of the redundancies I am referring about

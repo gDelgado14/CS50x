@@ -1,0 +1,76 @@
+
+
+
+if there are not 3 arguments
+    print proper usage
+
+pass argv1 to a variable "infile"
+pass argv2 to a variable "outfile" (which will be the resized image)
+
+create FILE pointer to read infile
+verify that it has been pointed to a proper file
+
+create a file pointer to write outfile
+verify that it has been pointed to a proper file
+
+create BITMAPFILEHEADER variable "bf"
+read contents of infile and pass them to bf (cursor moves 14 spots)
+
+create BITMAPINFOHEADER variable "bi"
+read contents of infile and pass them to bi (cursor moves 40 spots)
+
+ensure infile is likely a 24 bit uncompressed BMP
+
+create BITMAPFILEHEADER pointer  to point to infile
+create BITMAPFILEHEADER variable for outfile
+assign pointer address of infile File Header
+assign File Header variable the infile's File Header info
+
+create BITMAPINFOHEADER pointer  to point to infile
+create BITMAPINFOHEADER variable for outfile
+assign pointer address of infile Info Header
+assign File Header variable the infile's Info Header info
+
+Multiply outfile's height and width by n
+
+set a variable to the outfile's padding per scanline
+
+set biSizeImage
+
+set bf fileSize
+
+write outfile's file and info headers in that order
+
+for each scanline in infile
+    
+    create an RGBTRIPLE array to store the n number of identical pixels
+    
+    for each pixel in the infile
+        
+        create a RGBTRIPLE variable to store each pixel
+        
+        read one pixel and store it into triple (this moves the infile cursor by one pixel)
+            
+        loop n times
+            
+            place RGB variable into RGB array to creat expanded image
+        
+    skip over padding
+    
+    loop n times (for vertical expansion)
+        
+        write elements of RGB array for horizontal expansion
+        
+        add padding (using outfile padding variable) for each line
+    
+        
+        
+        
+        
+      
+            
+          
+            
+            
+
+
